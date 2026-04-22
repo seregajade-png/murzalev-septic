@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #f5f2ec;
+  --color-bg-alt: #ede8de;
+  --color-forest: #2d4a3a;
+  --color-forest-dark: #1a2c22;
+  --color-moss: #7a8b5c;
+  --color-graphite: #1f2421;
+  --color-sand: #d4c5a9;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-graphite);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-forest);
+  color: var(--color-bg);
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md font-medium transition-all duration-300 ease-smooth focus:outline-none focus:shadow-focus disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-forest text-cream px-6 py-3 hover:bg-forest-600 hover:-translate-y-0.5 hover:shadow-medium active:translate-y-0;
+  }
+  .btn-secondary {
+    @apply btn bg-transparent border border-forest text-forest px-6 py-3 hover:bg-forest hover:text-cream;
+  }
+  .btn-ghost {
+    @apply btn text-forest px-4 py-2 hover:bg-forest/10;
+  }
+  .btn-lg {
+    @apply px-8 py-4 text-lg;
+  }
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .input {
+    @apply w-full rounded-md border border-graphite-200 bg-white/60 px-4 py-3 text-graphite placeholder:text-graphite-300 transition focus:outline-none focus:border-forest focus:shadow-focus;
+  }
+
+  .card {
+    @apply rounded-lg bg-white/70 border border-graphite-200/50 shadow-soft transition-all duration-500 ease-smooth;
+  }
+  .card-hover {
+    @apply hover:shadow-elevated hover:-translate-y-1 hover:border-forest/20;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-forest/10 px-3 py-1 text-xs font-medium text-forest;
+  }
+
+  .container-site {
+    @apply mx-auto max-w-[1280px] px-6 md:px-10;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-moss-600 font-medium;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: currentColor;
+    display: inline-block;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-float-delayed {
+    animation: float 7s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(0.98); }
+}
+
+@layer utilities {
+  .animate-loading {
+    animation: loading 1.2s ease-in-out forwards;
+  }
+  .animate-pulse-soft {
+    animation: pulse-soft 1.5s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .grain {
+    position: relative;
+  }
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0'/></filter><rect width='120' height='120' filter='url(%23n)'/></svg>");
+    opacity: 0.6;
+  }
+}
