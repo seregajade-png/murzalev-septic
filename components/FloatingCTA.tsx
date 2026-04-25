@@ -53,8 +53,9 @@ export function FloatingCTA() {
         aria-label="MAX"
         title="MAX"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+        {/* MAX — буква M */}
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 20V4l9 9 9-9v16h-2.5V9.5L12 16.5 5.5 9.5V20H3z"/>
         </svg>
         <span className="absolute right-full mr-3 px-3 py-1.5 rounded-full bg-graphite text-cream text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none">
           MAX
@@ -64,12 +65,13 @@ export function FloatingCTA() {
         href={company.avito}
         target="_blank"
         rel="noopener"
-        className="group w-14 h-14 rounded-full bg-[#00AEEF] text-white flex items-center justify-center shadow-elevated hover:scale-110 transition-transform"
+        className="group w-14 h-14 rounded-full bg-[#00A046] text-white flex items-center justify-center shadow-elevated hover:scale-110 transition-transform"
         aria-label="Авито"
         title="Авито"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M8.1 7.8c-1.2 0-2.1.9-2.1 2.1s.9 2.1 2.1 2.1 2.1-.9 2.1-2.1-.9-2.1-2.1-2.1zm7.8 0c-1.2 0-2.1.9-2.1 2.1s.9 2.1 2.1 2.1 2.1-.9 2.1-2.1-.9-2.1-2.1-2.1zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm-5-7c0 2.8 2.2 5 5 5s5-2.2 5-5H7z"/>
+        {/* Авито — буква А */}
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3L3 22h3.5l2-4h7l2 4H21L12 3zm0 6 2.2 5.5H9.8L12 9z"/>
         </svg>
         <span className="absolute right-full mr-3 px-3 py-1.5 rounded-full bg-graphite text-cream text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none">
           Авито
