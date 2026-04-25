@@ -49,13 +49,13 @@ export function FloatingCTA() {
         href={company.max}
         target="_blank"
         rel="noopener"
-        className="group w-14 h-14 rounded-full bg-[#0077FF] text-white flex items-center justify-center shadow-elevated hover:scale-110 transition-transform"
+        className="group w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-elevated hover:scale-110 transition-transform border border-gray-100"
         aria-label="MAX"
         title="MAX"
       >
-        {/* MAX — буква M */}
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3 20V4l9 9 9-9v16h-2.5V9.5L12 16.5 5.5 9.5V20H3z"/>
+        {/* MAX (VK) — официальная эмблема с wikimedia */}
+        <svg width="32" height="32" viewBox="0 0 42 42" fill="#0077FF">
+          <path fillRule="evenodd" d="M21.47 41.88c-4.11 0-6.02-.6-9.34-3-2.1 2.7-8.75 4.81-9.04 1.2 0-2.71-.6-5-1.28-7.5C1 29.5.08 26.07.08 21.1.08 9.23 9.82.3 21.36.3c11.55 0 20.6 9.37 20.6 20.91a20.6 20.6 0 0 1-20.49 20.67m.17-31.32c-5.62-.29-10 3.6-10.97 9.7-.8 5.05.62 11.2 1.83 11.52.58.14 2.04-1.04 2.95-1.95a10.4 10.4 0 0 0 5.08 1.81 10.7 10.7 0 0 0 11.19-9.97 10.7 10.7 0 0 0-10.08-11.1Z" clipRule="evenodd"/>
         </svg>
         <span className="absolute right-full mr-3 px-3 py-1.5 rounded-full bg-graphite text-cream text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none">
           MAX
@@ -65,13 +65,16 @@ export function FloatingCTA() {
         href={company.avito}
         target="_blank"
         rel="noopener"
-        className="group w-14 h-14 rounded-full bg-[#00A046] text-white flex items-center justify-center shadow-elevated hover:scale-110 transition-transform"
+        className="group w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-elevated hover:scale-110 transition-transform border border-gray-100"
         aria-label="Авито"
         title="Авито"
       >
-        {/* Авито — буква А */}
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 3L3 22h3.5l2-4h7l2 4H21L12 3zm0 6 2.2 5.5H9.8L12 9z"/>
+        {/* Авито — официальный знак (4 круга) с wikimedia */}
+        <svg width="30" height="28" viewBox="0 0 420 380" fill="none">
+          <circle cx="122.965" cy="256.711" r="122.559" fill="#04E061"/>
+          <circle cx="335.574" cy="289.745" r="74.057" fill="#FF4053"/>
+          <circle cx="146.404" cy="72.347" r="45.829" fill="#965EEB"/>
+          <circle cx="306.803" cy="100.051" r="99.645" fill="#00AAFF"/>
         </svg>
         <span className="absolute right-full mr-3 px-3 py-1.5 rounded-full bg-graphite text-cream text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none">
           Авито
