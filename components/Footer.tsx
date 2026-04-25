@@ -12,12 +12,18 @@ export function Footer() {
           <p className="text-cream/70 leading-relaxed max-w-sm">
             Производство и установка септиков, накопителей, дренажных колодцев и кессонов по всему Крыму. Собственный завод в Симферополе.
           </p>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-2">
             <a href={company.whatsapp} target="_blank" rel="noopener" className="btn bg-cream/10 border border-cream/20 text-cream px-4 py-2 hover:bg-cream hover:text-forest transition text-sm">
               WhatsApp
             </a>
             <a href={company.telegram} target="_blank" rel="noopener" className="btn bg-cream/10 border border-cream/20 text-cream px-4 py-2 hover:bg-cream hover:text-forest transition text-sm">
               Telegram
+            </a>
+            <a href={company.max} target="_blank" rel="noopener" className="btn bg-cream/10 border border-cream/20 text-cream px-4 py-2 hover:bg-cream hover:text-forest transition text-sm">
+              MAX
+            </a>
+            <a href={company.avito} target="_blank" rel="noopener" className="btn bg-cream/10 border border-cream/20 text-cream px-4 py-2 hover:bg-cream hover:text-forest transition text-sm">
+              Авито
             </a>
           </div>
         </div>

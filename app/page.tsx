@@ -119,7 +119,7 @@ function HeroSection() {
               </div>
               <div>
                 <div className="text-sm font-medium text-graphite leading-tight">Монтаж за 1 день</div>
-                <div className="text-[11px] text-graphite-400">Доставка бесплатно</div>
+                <div className="text-[11px] text-graphite-400">По всему Крыму</div>
               </div>
             </div>
           </div>
@@ -175,9 +175,10 @@ function CatalogPreview() {
                     alt={c.title}
                     width={400}
                     height={300}
-                    className="w-3/4 h-3/4 object-contain transition-transform duration-700 ease-smooth group-hover:scale-110"
+                    className="w-full h-full object-contain p-4 transition-transform duration-700 ease-smooth group-hover:scale-110"
                   />
                   {c.tag && <span className="absolute top-4 left-4 chip bg-forest text-cream">{c.tag}</span>}
+                  {c.badge && <span className="absolute top-4 right-4 chip bg-moss/90 text-cream text-[10px]">{c.badge}</span>}
                 </div>
                 <div className="p-6 space-y-2">
                   <h3 className="font-display text-xl text-graphite">{c.title}</h3>
@@ -248,13 +249,13 @@ function AboutSection() {
               Собственный завод <span className="italic">в сердце Крыма</span>
             </h2>
             <p className="text-graphite-400 leading-relaxed">
-              Уже больше 10 лет производим септики, накопители, дренажные колодцы и кессоны на собственном заводе в Симферополе. Мы — единственный производитель таких систем в Крыму: здесь живём, здесь работаем, здесь отвечаем за результат.
+              Производим септики, накопители, дренажные колодцы и кессоны на собственном заводе в Симферополе. Мы — единственный производитель таких систем в Крыму: здесь живём, здесь работаем, здесь отвечаем за результат.
             </p>
             <p className="text-graphite-400 leading-relaxed">
               Делаем всё: от маленьких дачных септиков до огромных резервуаров для гостиниц и многоквартирных домов. Работаем официально — по договору, с пакетом документов для водоканала и СЭС.
             </p>
             <div className="grid grid-cols-3 gap-6 pt-6 border-t border-graphite-200/60">
-              <div><div className="font-display text-3xl text-forest">{company.yearsExperience}+</div><div className="text-xs text-graphite-400 mt-1">лет опыта</div></div>
+              <div><div className="font-display text-3xl text-forest">200+</div><div className="text-xs text-graphite-400 mt-1">установлено</div></div>
               <div><div className="font-display text-3xl text-forest">70+</div><div className="text-xs text-graphite-400 mt-1">моделей</div></div>
               <div><div className="font-display text-3xl text-forest">98%</div><div className="text-xs text-graphite-400 mt-1">очистка</div></div>
             </div>
@@ -262,8 +263,8 @@ function AboutSection() {
         </Reveal>
         <Reveal delay={200}>
           <div className="grid grid-cols-2 gap-4">
-            <div className="card overflow-hidden aspect-[3/4] bg-gradient-to-br from-moss/20 to-forest/10 flex items-center justify-center">
-              <Image src="/images/products/septik-hero.png" alt="Септик" width={300} height={400} className="w-full h-full object-contain p-4" />
+            <div className="card overflow-hidden aspect-[3/4] bg-gradient-to-br from-moss/20 to-forest/10">
+              <Image src="/images/about-production.jpg" alt="Производство Мурзалёв" width={300} height={400} className="w-full h-full object-cover" />
             </div>
             <div className="space-y-4">
               <div className="card p-6 bg-forest text-cream border-forest">
@@ -374,7 +375,7 @@ function LeadSection() {
           <div className="space-y-6">
             <div className="eyebrow">Заявка на консультацию</div>
             <h2 className="font-display text-display-md text-forest text-balance">
-              Оставьте заявку — <span className="italic">перезвоним</span> за 15 минут
+              Оставьте заявку — <span className="italic">перезвоним</span> за час
             </h2>
             <p className="text-graphite-400 leading-relaxed">
               Инженер подберёт модель септика под ваш участок, рассчитает точную стоимость и срок монтажа. Консультация и выезд на замеры — бесплатно.
@@ -389,9 +390,11 @@ function LeadSection() {
                   <div className="text-xs text-graphite-400">{company.schedule}</div>
                 </div>
               </a>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 <a href={company.whatsapp} target="_blank" rel="noopener" className="btn-secondary btn-sm flex-1">WhatsApp</a>
                 <a href={company.telegram} target="_blank" rel="noopener" className="btn-secondary btn-sm flex-1">Telegram</a>
+                <a href={company.max} target="_blank" rel="noopener" className="btn-secondary btn-sm flex-1">MAX</a>
+                <a href={company.avito} target="_blank" rel="noopener" className="btn-secondary btn-sm flex-1">Авито</a>
               </div>
             </div>
           </div>

@@ -45,7 +45,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const features = [
     { icon: IconShield, title: "Гарантия", text: "На корпус и монтаж" },
     { icon: IconClock, title: "Монтаж за 1 день", text: "По всему Крыму" },
-    { icon: IconTruck, title: "Бесплатная доставка", text: "Собственным транспортом" },
+    { icon: IconTruck, title: "Доставка по Крыму", text: "Собственным транспортом" },
     { icon: IconLeaf, title: "Био-набор в комплекте", text: "Для быстрого запуска" },
   ];
 
@@ -109,7 +109,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                   <div className="font-display text-3xl text-forest mt-1">{formatPrice(product.price)}</div>
                 </div>
                 <div className="text-xs text-graphite-400 text-right">
-                  + доставка бесплатно<br />
+                  + доставка по Крыму<br />
                   + монтаж по запросу
                 </div>
               </div>
@@ -149,7 +149,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <div className="pt-4 border-t border-graphite-200/60">
                 <h3 className="font-display text-lg text-graphite mb-3">Что в комплекте</h3>
                 <div className="grid sm:grid-cols-2 gap-2 text-sm text-graphite-400">
-                  {["Септик заводской сборки", "Стартовый био-набор", "Бесплатная доставка", "Пакет документов для СЭС", "Консультация инженера", "Гарантийное обслуживание"].map((item) => (
+                  {["Септик заводской сборки", "Стартовый био-набор", "Пакет документов для СЭС", "Консультация инженера", "Гарантийное обслуживание"].map((item) => (
                     <div key={item} className="flex items-center gap-2">
                       <IconCheck className="w-4 h-4 text-moss-600" /> {item}
                     </div>
@@ -161,7 +161,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <div id="product-lead" className="card p-6 md:p-8 bg-forest text-cream border-forest space-y-5 scroll-mt-28">
               <div className="eyebrow !text-sand">Заявка</div>
               <h3 className="font-display text-xl text-cream">Узнайте стоимость с монтажом</h3>
-              <p className="text-sm text-cream/80">Оставьте номер — рассчитаем и перезвоним за 15 минут.</p>
+              <p className="text-sm text-cream/80">Оставьте номер — рассчитаем и перезвоним за час.</p>
               <div className="[&_input]:bg-cream/10 [&_input]:border-cream/20 [&_input]:text-cream [&_input]:placeholder:text-cream/50 [&_textarea]:bg-cream/10 [&_textarea]:border-cream/20 [&_textarea]:text-cream [&_textarea]:placeholder:text-cream/50 [&_select]:bg-cream/10 [&_select]:border-cream/20 [&_select]:text-cream [&_button]:bg-cream [&_button]:text-forest [&_button]:hover:bg-sand [&_button]:hover:text-forest [&_a]:text-sand [&_.text-red-500]:!text-sand">
                 <LeadForm variant="compact" category={product.category} />
               </div>

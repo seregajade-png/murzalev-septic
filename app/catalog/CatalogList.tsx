@@ -8,6 +8,7 @@ import {
   categories,
   products,
   productsByCategory,
+  getCategory,
   formatPrice,
   type Category,
 } from "@/lib/products";
@@ -49,39 +50,45 @@ export function CatalogList() {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {visible.map((p) => (
-          <Link key={p.slug} href={`/catalog/${p.slug}`} className="group card card-hover overflow-hidden flex flex-col">
-            <div className="relative aspect-[4/3] bg-gradient-to-br from-moss/15 via-sand/10 to-forest/5 flex items-center justify-center overflow-hidden">
-              <Image
-                src={p.image}
-                alt={p.name}
-                width={400}
-                height={300}
-                className="w-3/4 h-3/4 object-contain transition-transform duration-700 ease-smooth group-hover:scale-110"
-              />
-            </div>
-            <div className="p-5 flex flex-col flex-1 space-y-3">
-              <div>
-                <h3 className="font-display text-lg text-graphite">{p.name}</h3>
-                <div className="text-xs text-graphite-400 mt-1 flex gap-3">
-                  <span>{p.size}</span>
-                  {p.capacity && <span className="text-moss-600">{p.capacity}</span>}
+        {visible.map((p) => {
+          const cat = getCategory(p.category);
+          return (
+            <Link key={p.slug} href={`/catalog/${p.slug}`} className="group card card-hover overflow-hidden flex flex-col">
+              <div className="relative aspect-[4/3] bg-gradient-to-br from-moss/15 via-sand/10 to-forest/5 flex items-center justify-center overflow-hidden">
+                <Image
+                  src={p.image}
+                  alt={p.name}
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-contain p-4 transition-transform duration-700 ease-smooth group-hover:scale-110"
+                />
+                {cat?.badge && (
+                  <span className="absolute top-3 left-3 chip bg-forest/90 text-cream text-[10px]">{cat.badge}</span>
+                )}
+              </div>
+              <div className="p-5 flex flex-col flex-1 space-y-3">
+                <div>
+                  <h3 className="font-display text-lg text-graphite">{p.name}</h3>
+                  <div className="text-xs text-graphite-400 mt-1 flex gap-3">
+                    <span>{p.size}</span>
+                    {p.capacity && <span className="text-moss-600">{p.capacity}</span>}
+                  </div>
+                </div>
+                {p.users && (
+                  <div className="text-xs text-graphite-400">
+                    до {p.users} пользователей
+                  </div>
+                )}
+                <div className="mt-auto pt-3 border-t border-graphite-200/50 flex items-center justify-between">
+                  <span className="text-forest font-medium">{formatPrice(p.price)}</span>
+                  <span className="text-sm text-graphite-400 group-hover:text-forest transition-colors flex items-center gap-1">
+                    Подробнее <IconArrowRight className="w-4 h-4" />
+                  </span>
                 </div>
               </div>
-              {p.users && (
-                <div className="text-xs text-graphite-400">
-                  до {p.users} пользователей
-                </div>
-              )}
-              <div className="mt-auto pt-3 border-t border-graphite-200/50 flex items-center justify-between">
-                <span className="text-forest font-medium">{formatPrice(p.price)}</span>
-                <span className="text-sm text-graphite-400 group-hover:text-forest transition-colors flex items-center gap-1">
-                  Подробнее <IconArrowRight className="w-4 h-4" />
-                </span>
-              </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          );
+        })}
       </div>
 
       {visible.length === 0 && (

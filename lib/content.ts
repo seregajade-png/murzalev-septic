@@ -11,16 +11,18 @@ export const company = {
   email: "murzalev.septiki@yandex.ru",
   telegram: "https://t.me/Murzalev_septik",
   whatsapp: "https://wa.me/79782814549",
+  max: "https://vk.me/murzalev_septik",
+  avito: "https://www.avito.ru/simferopol/predlozheniya_uslug/septik_pod_klyuch_bez_otkachki_7565191503",
 };
 
 export const hero = {
   title: "Септики без запаха\nи откачки",
   subtitle: "Производим и устанавливаем за 1–5 дней. Единственный производитель септиков в Крыму.",
   stats: [
-    { value: "10+", label: "лет опыта" },
     { value: "1 день", label: "монтаж" },
     { value: "50+", label: "моделей" },
     { value: "5★", label: "на Авито" },
+    { value: "200+", label: "установлено" },
   ],
 };
 
@@ -47,7 +49,7 @@ export const advantages = [
   },
   {
     icon: "IconTruck",
-    title: "Доставка бесплатно",
+    title: "Доставка по Крыму",
     text: "Доставляем собственным транспортом к вам на участок. В стандартной комплектации — стартовый био-набор.",
   },
   {
@@ -72,7 +74,7 @@ export const processSteps = [
   },
   {
     title: "Доставка",
-    text: "Бесплатно привозим на участок собственным транспортом.",
+    text: "Привозим на участок собственным транспортом по согласованной стоимости.",
   },
   {
     title: "Монтаж и запуск",
@@ -141,23 +143,23 @@ export const faq = [
 
 export const works = [
   {
-    title: "Загородный дом",
-    desc: "Экофильтр ПЛЮС 1.5 · 8 пользователей",
-    image: "/images/works/cottage.jpg",
+    title: "Монтаж септика и дренажа",
+    desc: "Экофильтр + дренажный колодец · частный дом",
+    image: "/images/works/install1.jpg",
   },
   {
-    title: "Коттеджный посёлок",
-    desc: "Экофильтр премиум плюс 20 · 100 пользователей",
-    image: "/images/works/village.jpg",
+    title: "Установка под ключ",
+    desc: "Септик + дренажная система · Симферополь",
+    image: "/images/works/install2.jpg",
   },
   {
-    title: "Монтаж на объекте",
-    desc: "Работа бригады в Симферополе",
-    image: "/images/works/construction.jpg",
+    title: "Монтаж дренажного колодца",
+    desc: "Засыпка щебнем · частный участок",
+    image: "/images/works/install3.jpg",
   },
   {
-    title: "Проектирование системы",
-    desc: "Подбор модели под участок",
-    image: "/images/works/blueprint.jpg",
+    title: "Готовая система",
+    desc: "Дренажный колодец смонтирован",
+    image: "/images/works/install4.jpg",
   },
 ];

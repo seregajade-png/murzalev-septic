@@ -31,7 +31,7 @@ const values = [
   {
     icon: IconClock,
     title: "Быстро реагируем",
-    text: "Отвечаем на заявки в течение 15 минут в рабочие часы. Производство — 1–5 дней, монтаж — обычно за один день.",
+    text: "Отвечаем на заявки в течение часа в рабочие часы. Производство — 1–5 дней, монтаж — обычно за один день.",
   },
   {
     icon: IconWrench,
@@ -40,13 +40,6 @@ const values = [
   },
 ];
 
-const milestones = [
-  { year: "2014", text: "Начало работы. Первый септик для частного дома в Симферополе." },
-  { year: "2017", text: "Запуск серии «Экофильтр ПЛЮС» с энергозависимой очисткой." },
-  { year: "2019", text: "Открытие второго цеха. Производство коммерческих станций до 50 м³/сут." },
-  { year: "2022", text: "Расширение ассортимента: кессоны, погреба, системы ливневых стоков." },
-  { year: "2024", text: "Более 200 установленных септиков по всему Крыму." },
-];
 
 export default function AboutPage() {
   return (
@@ -62,7 +55,7 @@ export default function AboutPage() {
                 Производим септики <span className="italic">в сердце Крыма</span>
               </h1>
               <p className="text-graphite-400 leading-relaxed text-lg">
-                Больше {company.yearsExperience} лет мы производим и устанавливаем септики, накопители, дренажные колодцы, кессоны и погреба. Собственный завод в Симферополе — никаких посредников, ответственность за каждую деталь.
+                Производим и устанавливаем септики, накопители, дренажные колодцы, кессоны и погреба. Собственный завод в Симферополе — никаких посредников, ответственность за каждую деталь.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a href="#lead-form" className="btn-primary">Получить консультацию</a>
@@ -71,14 +64,13 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <Reveal delay={200}>
-            <div className="relative aspect-[5/6] rounded-[2.5rem] bg-gradient-to-br from-moss/15 via-sand/10 to-forest/5 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-cream to-cream-200/50" />
+            <div className="relative aspect-[5/6] rounded-[2.5rem] overflow-hidden">
               <Image
-                src="/images/products/septik-hero.png"
-                alt="Септик Мурзалёв"
+                src="/images/about-factory.jpg"
+                alt="Производство Мурзалёв"
                 fill
                 sizes="(max-width: 768px) 100vw, 480px"
-                className="object-contain p-6 mix-blend-multiply"
+                className="object-cover object-top"
               />
             </div>
           </Reveal>
@@ -86,8 +78,7 @@ export default function AboutPage() {
 
         <section className="container-site mb-24">
           <Reveal>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 py-10 border-y border-graphite-200/60">
-              <Stat value="10+" label="лет на рынке Крыма" />
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 py-10 border-y border-graphite-200/60">
               <Stat value="200+" label="установленных септиков" />
               <Stat value="70+" label="моделей в каталоге" />
               <Stat value="98%" label="степень очистки" />
@@ -117,31 +108,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="container-site mb-24">
-          <div className="max-w-2xl mb-12">
-            <div className="eyebrow">История</div>
-            <h2 className="font-display text-display-md text-forest mt-4 text-balance">
-              Как мы развивались
-            </h2>
-          </div>
-          <div className="relative">
-            <div className="absolute left-3 top-3 bottom-3 w-px bg-graphite-200 md:left-1/2 md:-translate-x-1/2" />
-            <div className="space-y-8">
-              {milestones.map((m, i) => (
-                <Reveal key={m.year} delay={i * 60}>
-                  <div className={`relative grid md:grid-cols-2 md:gap-10 ${i % 2 === 0 ? "" : "md:[&>:first-child]:order-2"}`}>
-                    <div className={`pl-10 md:pl-0 ${i % 2 === 0 ? "md:text-right md:pr-10" : "md:pl-10"}`}>
-                      <div className="font-display text-3xl text-forest">{m.year}</div>
-                      <p className="text-graphite-400 leading-relaxed mt-2">{m.text}</p>
-                    </div>
-                    <div className="hidden md:block" />
-                    <div className="absolute left-0 top-2 w-6 h-6 rounded-full bg-forest border-4 border-cream md:left-1/2 md:-translate-x-1/2" />
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
 
         <section className="container-site mb-24">
           <Reveal>
@@ -158,7 +124,7 @@ export default function AboutPage() {
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
-                  {["Монолитный корпус", "СанПиН 2.1.5.980-00", "Доставка бесплатно", "Био-набор в комплекте", "Документы для СЭС", "Гарантия 12+ мес."].map((item) => (
+                  {["Монолитный корпус", "СанПиН 2.1.5.980-00", "Доставка по Крыму", "Био-набор в комплекте", "Документы для СЭС", "Гарантия 12+ мес."].map((item) => (
                     <div key={item} className="flex items-start gap-2 text-sm text-cream/90">
                       <IconCheck className="w-4 h-4 text-sand flex-shrink-0 mt-0.5" /> {item}
                     </div>
