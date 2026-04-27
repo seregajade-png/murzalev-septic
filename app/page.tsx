@@ -89,16 +89,16 @@ function HeroSection() {
         </div>
 
         <Reveal delay={200}>
-          <div className="relative w-full max-w-[560px] ml-auto hidden lg:block">
+          <div className="relative w-full max-w-[280px] lg:max-w-[560px] mx-auto lg:ml-auto lg:mr-0">
             <ParallaxHero strength={0.08}>
-              <div className="relative aspect-[5/6] rounded-[2.5rem] overflow-hidden">
+              <div className="relative aspect-[4/5] lg:aspect-[5/6] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden">
                 <Image
                   src="/images/hero-house.jpg"
                   alt="Установка септика Мурзалёв"
                   fill
                   priority
                   unoptimized
-                  sizes="(max-width: 1024px) 80vw, 560px"
+                  sizes="(max-width: 1024px) 280px, 560px"
                   className="object-cover"
                 />
               </div>
