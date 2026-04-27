@@ -88,7 +88,7 @@ function HeroSection() {
         </div>
 
         <Reveal delay={200}>
-          <div className="relative w-full max-w-[560px] ml-auto">
+          <div className="relative w-full max-w-[560px] ml-auto hidden lg:block">
             <ParallaxHero strength={0.08}>
               <div className="relative aspect-[5/6] rounded-[2.5rem] overflow-hidden">
                 <Image
@@ -96,6 +96,7 @@ function HeroSection() {
                   alt="Загородный дом с септиком Мурзалёв"
                   fill
                   priority
+                  quality={95}
                   sizes="(max-width: 1024px) 80vw, 560px"
                   className="object-cover"
                 />
