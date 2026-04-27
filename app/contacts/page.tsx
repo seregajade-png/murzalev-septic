@@ -119,7 +119,7 @@ export default function ContactsPage() {
             <div className="card overflow-hidden aspect-[4/3] md:aspect-auto relative">
               <iframe
                 title="Карта"
-                src="https://yandex.ru/map-widget/v1/?text=Симферополь%20улица%20Генерала%20Васильева&z=15"
+                src="https://yandex.ru/map-widget/v1/?ll=34.072463%2C44.926556&mode=usermaps&source=mapframe&um=constructor%3A159684d441e7918b1832635d19e8b2c5869dbebb056a9cb014c2bc2966bbc0a4&z=17"
                 width="100%"
                 height="100%"
                 frameBorder={0}

@@ -94,7 +94,7 @@ export default function CatalogPage() {
             <div className="relative min-h-[400px] bg-graphite-200/30">
               <iframe
                 title="Карта Мурзалёв"
-                src="https://yandex.ru/map-widget/v1/?text=Симферополь%20улица%20Генерала%20Васильева&z=15"
+                src="https://yandex.ru/map-widget/v1/?ll=34.072463%2C44.926556&mode=usermaps&source=mapframe&um=constructor%3A159684d441e7918b1832635d19e8b2c5869dbebb056a9cb014c2bc2966bbc0a4&z=17"
                 width="100%"
                 height="100%"
                 frameBorder={0}
@@ -102,7 +102,7 @@ export default function CatalogPage() {
                 allowFullScreen
               />
               <a
-                href="https://yandex.ru/maps/?text=Симферополь%20улица%20Генерала%20Васильева"
+                href="https://yandex.ru/maps/146/simferopol/?ll=34.072463%2C44.926556&mode=usermaps&um=constructor%3A159684d441e7918b1832635d19e8b2c5869dbebb056a9cb014c2bc2966bbc0a4&z=17"
                 target="_blank"
                 rel="noopener"
                 className="absolute bottom-4 left-4 inline-flex items-center gap-2 bg-cream/95 backdrop-blur text-forest text-sm font-medium px-4 py-2 rounded-full shadow-elevated hover:bg-cream transition"

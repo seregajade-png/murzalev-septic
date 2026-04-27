@@ -15,6 +15,7 @@ import { Reveal } from "./_sections/Reveal";
 import { CountUp } from "@/components/CountUp";
 import { ParallaxHero } from "@/components/ParallaxHero";
 import { SplitText } from "@/components/SplitText";
+import { SeptikQuiz } from "@/components/SeptikQuiz";
 
 const iconMap = { IconShield, IconClock, IconLeaf, IconTruck, IconWrench, IconDrop };
 
@@ -28,7 +29,7 @@ export default function Home() {
         <HeroSection />
         <AdvantagesSection />
         <CatalogPreview />
-        <SelectorSection />
+        <SeptikQuiz />
         <AboutSection />
         <WorksSection />
         <ProcessSection />
@@ -193,45 +194,6 @@ function CatalogPreview() {
               </Link>
             </Reveal>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function SelectorSection() {
-  return (
-    <section className="py-section">
-      <div className="container-site">
-        <div className="card p-8 md:p-14 bg-gradient-to-br from-forest to-forest-700 text-cream relative overflow-hidden">
-          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-moss/20 blur-3xl pointer-events-none" />
-          <div className="relative grid md:grid-cols-[1fr_auto] gap-8 items-center">
-            <div className="space-y-5 max-w-xl">
-              <div className="eyebrow !text-sand">Не знаете, какой септик нужен?</div>
-              <h2 className="font-display text-display-md text-cream text-balance">
-                Подберём модель <span className="italic text-sand">бесплатно</span>
-              </h2>
-              <p className="text-cream/80 leading-relaxed">
-                Расскажите нам о вашем участке — количестве жильцов, типе грунта, уровне грунтовых вод. Инженер подберёт оптимальную модель и рассчитает точную стоимость монтажа.
-              </p>
-              <div className="flex flex-wrap gap-3 pt-2">
-                <a href="#lead-form" className="btn bg-cream text-forest px-6 py-3 hover:bg-sand transition">
-                  Оставить заявку
-                </a>
-                <a href={`tel:${company.phoneRaw}`} className="btn border border-cream/30 text-cream px-6 py-3 hover:bg-cream/10">
-                  <IconPhone className="w-4 h-4" /> {company.phone}
-                </a>
-              </div>
-            </div>
-            <div className="hidden md:flex flex-col gap-3 text-sm">
-              {["Количество людей", "Тип грунта", "Грунтовые воды", "Бюджет"].map((item, i) => (
-                <div key={item} className="flex items-center gap-3 bg-cream/5 border border-cream/10 rounded-md px-4 py-3">
-                  <div className="w-8 h-8 rounded-full bg-sand/20 text-sand flex items-center justify-center font-mono text-xs">0{i + 1}</div>
-                  <span className="text-cream/80">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
