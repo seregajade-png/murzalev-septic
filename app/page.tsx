@@ -176,10 +176,19 @@ function CatalogPreview() {
                     alt={c.title}
                     width={400}
                     height={300}
-                    className="w-full h-full object-contain p-4 transition-transform duration-700 ease-smooth group-hover:scale-110"
+                    className="w-full h-full object-contain p-4 transition-all duration-500 ease-smooth group-hover:opacity-0"
                   />
-                  {c.tag && <span className="absolute top-4 left-4 chip bg-forest text-cream">{c.tag}</span>}
-                  {c.badge && <span className="absolute top-4 right-4 chip bg-moss/90 text-cream text-[10px]">{c.badge}</span>}
+                  {c.imageOpen && (
+                    <Image
+                      src={c.imageOpen}
+                      alt={c.title + " — в разрезе"}
+                      width={400}
+                      height={300}
+                      className="absolute inset-0 w-full h-full object-contain p-4 opacity-0 transition-opacity duration-500 ease-smooth group-hover:opacity-100"
+                    />
+                  )}
+                  {c.tag && <span className="absolute top-4 left-4 chip bg-forest text-cream z-10">{c.tag}</span>}
+                  {c.badge && <span className="absolute top-4 right-4 chip bg-moss/90 text-cream text-[10px] z-10">{c.badge}</span>}
                 </div>
                 <div className="p-6 space-y-2">
                   <h3 className="font-display text-xl text-graphite">{c.title}</h3>

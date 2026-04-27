@@ -67,15 +67,29 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16">
             <div className="space-y-4">
-              <div className="card overflow-hidden bg-gradient-to-br from-moss/15 via-sand/10 to-forest/5 aspect-square flex items-center justify-center p-10">
+              <div className="group card overflow-hidden bg-gradient-to-br from-moss/15 via-sand/10 to-forest/5 aspect-square flex items-center justify-center p-10 relative">
                 <Image
-                  src={product.image}
+                  src={category.image}
                   alt={product.name}
                   width={700}
                   height={700}
                   priority
-                  className="w-full h-full object-contain drop-shadow-xl"
+                  className="w-full h-full object-contain drop-shadow-xl transition-opacity duration-500 ease-smooth group-hover:opacity-0"
                 />
+                {category.imageOpen && (
+                  <Image
+                    src={category.imageOpen}
+                    alt={product.name + " — в разрезе"}
+                    width={700}
+                    height={700}
+                    className="absolute inset-0 w-full h-full object-contain p-10 opacity-0 transition-opacity duration-500 ease-smooth group-hover:opacity-100 drop-shadow-xl"
+                  />
+                )}
+                {category.imageOpen && (
+                  <div className="absolute bottom-4 right-4 chip bg-cream/90 backdrop-blur text-graphite-400 text-[11px] z-10 pointer-events-none group-hover:opacity-0 transition">
+                    Наведите — посмотреть в разрезе
+                  </div>
+                )}
               </div>
               <div className="flex gap-2 text-xs text-graphite-400 flex-wrap">
                 {category.tag && <span className="chip">{category.tag}</span>}
@@ -182,8 +196,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <div className="grid md:grid-cols-3 gap-5">
                 {related.map((p) => (
                   <Link key={p.slug} href={`/catalog/${p.slug}`} className="card card-hover overflow-hidden group">
-                    <div className="aspect-[4/3] bg-gradient-to-br from-moss/15 via-sand/10 to-forest/5 flex items-center justify-center p-6">
-                      <Image src={p.image} alt={p.name} width={300} height={225} className="w-full h-full object-contain transition-transform duration-700 ease-smooth group-hover:scale-110" />
+                    <div className="relative aspect-[4/3] bg-gradient-to-br from-moss/15 via-sand/10 to-forest/5 flex items-center justify-center p-6 overflow-hidden">
+                      <Image src={category.image} alt={p.name} width={300} height={225} className="w-full h-full object-contain transition-opacity duration-500 ease-smooth group-hover:opacity-0" />
+                      {category.imageOpen && (
+                        <Image src={category.imageOpen} alt={p.name + " — в разрезе"} width={300} height={225} className="absolute inset-0 w-full h-full object-contain p-6 opacity-0 transition-opacity duration-500 ease-smooth group-hover:opacity-100" />
+                      )}
                     </div>
                     <div className="p-5 space-y-2">
                       <h3 className="font-display text-base text-graphite">{p.name}</h3>

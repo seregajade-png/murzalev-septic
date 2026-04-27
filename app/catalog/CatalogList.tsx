@@ -56,14 +56,23 @@ export function CatalogList() {
             <Link key={p.slug} href={`/catalog/${p.slug}`} className="group card card-hover overflow-hidden flex flex-col">
               <div className="relative aspect-[4/3] bg-gradient-to-br from-moss/15 via-sand/10 to-forest/5 flex items-center justify-center overflow-hidden">
                 <Image
-                  src={p.image}
+                  src={cat?.image ?? p.image}
                   alt={p.name}
                   width={400}
                   height={300}
-                  className="w-full h-full object-contain p-4 transition-transform duration-700 ease-smooth group-hover:scale-110"
+                  className="w-full h-full object-contain p-4 transition-all duration-500 ease-smooth group-hover:opacity-0"
                 />
+                {cat?.imageOpen && (
+                  <Image
+                    src={cat.imageOpen}
+                    alt={p.name + " — в разрезе"}
+                    width={400}
+                    height={300}
+                    className="absolute inset-0 w-full h-full object-contain p-4 opacity-0 transition-opacity duration-500 ease-smooth group-hover:opacity-100"
+                  />
+                )}
                 {cat?.badge && (
-                  <span className="absolute top-3 left-3 chip bg-forest/90 text-cream text-[10px]">{cat.badge}</span>
+                  <span className="absolute top-3 left-3 chip bg-forest/90 text-cream text-[10px] z-10">{cat.badge}</span>
                 )}
               </div>
               <div className="p-5 flex flex-col flex-1 space-y-3">

@@ -31,6 +31,7 @@ export type CategoryInfo = {
   tag?: string;
   badge?: string;
   image: string;
+  imageOpen?: string;
   energyDependent: boolean;
   chambers?: number;
 };
@@ -42,7 +43,8 @@ export const categories: CategoryInfo[] = [
     short: "Энергонезависимый септик",
     description:
       "Пластиковая горизонтальная ёмкость из 3 камер. Очистка анаэробными бактериями без электричества. Идеально для дачи и сезонного проживания.",
-    image: "/images/products/ecofilter.png",
+    image: "/images/products/catalog/ecofilter-closed.png",
+    imageOpen: "/images/products/catalog/ecofilter-open.png",
     energyDependent: false,
     chambers: 3,
     tag: "Без электричества",
@@ -54,7 +56,8 @@ export const categories: CategoryInfo[] = [
     short: "Энергозависимая станция",
     description:
       "Переработка аэробными бактериями с дисковым аэратором и компрессором от 40 л/мин. Высокая степень очистки, подходит для постоянного проживания.",
-    image: "/images/products/ecofilter-plus.png",
+    image: "/images/products/catalog/ecofilter-plus-closed.png",
+    imageOpen: "/images/products/catalog/ecofilter-plus-open.png",
     energyDependent: true,
     chambers: 3,
     badge: "Очистка 80–85%",
@@ -65,7 +68,8 @@ export const categories: CategoryInfo[] = [
     short: "6-камерная станция очистки",
     description:
       "Аналог городских очистных сооружений. 6 дублированных камер для максимальной эффективности. Одна из лучших моделей на рынке.",
-    image: "/images/products/ecofilter-premium.png",
+    image: "/images/products/catalog/ecofilter-premium-closed.png",
+    imageOpen: "/images/products/catalog/ecofilter-premium-open.png",
     energyDependent: true,
     chambers: 6,
     tag: "Премиум",
@@ -77,7 +81,8 @@ export const categories: CategoryInfo[] = [
     short: "Компактная вертикальная станция",
     description:
       "Компрессорная станция с двумя дисковыми аэраторами и системой эрлифт. Вертикальная компоновка экономит место на участке.",
-    image: "/images/products/ecofilter-vertical.png",
+    image: "/images/products/catalog/ecofilter-vertical-closed.png",
+    imageOpen: "/images/products/catalog/ecofilter-vertical-open.png",
     energyDependent: true,
     chambers: 3,
     tag: "Компактный",
@@ -89,7 +94,8 @@ export const categories: CategoryInfo[] = [
     short: "Для отелей и посёлков",
     description:
       "Для гостиниц, турбаз, коттеджных посёлков и многоквартирных домов. Объёмы от 5 до 50 м³ в сутки.",
-    image: "/images/products/ecofilter-premium.png",
+    image: "/images/products/catalog/ecofilter-premium-plus-closed.png",
+    imageOpen: "/images/products/catalog/ecofilter-premium-plus-open.png",
     energyDependent: true,
     chambers: 6,
     tag: "Коммерческий",
@@ -101,7 +107,7 @@ export const categories: CategoryInfo[] = [
     short: "Очистка ливневых вод",
     description:
       "Для очистки поверхностных талых и ливнёвых стоков с территории, парковок и крыш. С пескоуловителем, нефтеуловителем и угольной загрузкой.",
-    image: "/images/products/ecofilter-stok.png",
+    image: "/images/products/catalog/ecofilter-stok-open.png",
     energyDependent: false,
     badge: "Ливневые стоки",
   },
