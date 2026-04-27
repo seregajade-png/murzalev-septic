@@ -93,10 +93,10 @@ function HeroSection() {
               <div className="relative aspect-[5/6] rounded-[2.5rem] overflow-hidden">
                 <Image
                   src="/images/hero-house.jpg"
-                  alt="Загородный дом с септиком Мурзалёв"
+                  alt="Установка септика Мурзалёв"
                   fill
                   priority
-                  quality={95}
+                  unoptimized
                   sizes="(max-width: 1024px) 80vw, 560px"
                   className="object-cover"
                 />
