@@ -90,15 +90,14 @@ function HeroSection() {
         <Reveal delay={200}>
           <div className="relative w-full max-w-[560px] ml-auto">
             <ParallaxHero strength={0.08}>
-              <div className="relative aspect-[5/6] rounded-[2.5rem] bg-gradient-to-br from-moss/15 via-sand/10 to-forest/5 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-cream to-cream-200/50" />
+              <div className="relative aspect-[5/6] rounded-[2.5rem] overflow-hidden">
                 <Image
-                  src="/images/products/septik-hero.png"
-                  alt="Септик Экофильтр Мурзалёв"
+                  src="/images/hero-house.jpg"
+                  alt="Загородный дом с септиком Мурзалёв"
                   fill
                   priority
                   sizes="(max-width: 1024px) 80vw, 560px"
-                  className="object-contain p-6 mix-blend-multiply"
+                  className="object-cover"
                 />
               </div>
             </ParallaxHero>
