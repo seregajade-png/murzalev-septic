@@ -71,6 +71,20 @@ export default function CatalogPage() {
                 </a>
 
                 <a
+                  href={company.max}
+                  target="_blank"
+                  rel="noopener"
+                  className="flex items-center gap-3 bg-cream/95 hover:bg-cream text-graphite rounded-2xl px-5 py-3.5 transition"
+                >
+                  <span className="w-9 h-9 rounded-full bg-white border border-graphite-200 flex items-center justify-center flex-shrink-0">
+                    <svg width="18" height="18" viewBox="0 0 42 42" fill="#0077FF">
+                      <path fillRule="evenodd" d="M21.47 41.88c-4.11 0-6.02-.6-9.34-3-2.1 2.7-8.75 4.81-9.04 1.2 0-2.71-.6-5-1.28-7.5C1 29.5.08 26.07.08 21.1.08 9.23 9.82.3 21.36.3c11.55 0 20.6 9.37 20.6 20.91a20.6 20.6 0 0 1-20.49 20.67m.17-31.32c-5.62-.29-10 3.6-10.97 9.7-.8 5.05.62 11.2 1.83 11.52.58.14 2.04-1.04 2.95-1.95a10.4 10.4 0 0 0 5.08 1.81 10.7 10.7 0 0 0 11.19-9.97 10.7 10.7 0 0 0-10.08-11.1Z" clipRule="evenodd"/>
+                    </svg>
+                  </span>
+                  <span className="font-medium">Написать в MAX</span>
+                </a>
+
+                <a
                   href={`tel:${company.phoneRaw}`}
                   className="flex items-center gap-3 bg-cream/95 hover:bg-cream text-graphite rounded-2xl px-5 py-3.5 transition"
                 >

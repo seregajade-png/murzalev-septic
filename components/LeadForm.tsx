@@ -88,6 +88,7 @@ export function LeadForm({ variant = "full", category }: { variant?: Variant; ca
             {categories.map((c) => (
               <option key={c.slug} value={c.slug}>{c.title}</option>
             ))}
+            <option value="undecided">Пока не определился</option>
           </select>
           <textarea
             placeholder="Комментарий (необязательно)"

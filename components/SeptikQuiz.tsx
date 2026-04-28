@@ -54,76 +54,89 @@ export function SeptikQuiz() {
           <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-moss/20 blur-3xl pointer-events-none" />
           <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-sand/10 blur-3xl pointer-events-none" />
 
-          <div className="relative space-y-8">
-            <div className="flex items-center justify-between gap-6 flex-wrap">
-              <div className="space-y-3 max-w-xl">
-                <div className="eyebrow !text-sand">Подбор модели за 30 секунд</div>
-                <h2 className="font-display text-display-md text-cream text-balance">
-                  Какой септик <span className="italic text-sand">подходит вам?</span>
-                </h2>
+          <div className="relative space-y-10">
+            <div className="space-y-4 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 chip bg-sand text-forest font-medium">
+                <IconArrowRight className="w-3.5 h-3.5" /> Подбор модели за 1 минуту
               </div>
-              <div className="flex items-center gap-2 text-sm text-cream/70">
-                <span className={`w-8 h-8 rounded-full flex items-center justify-center font-mono ${step >= 1 ? "bg-sand text-forest" : "bg-cream/10 text-cream/50"}`}>1</span>
-                <span className="w-6 h-px bg-cream/20" />
-                <span className={`w-8 h-8 rounded-full flex items-center justify-center font-mono ${step >= 2 ? "bg-sand text-forest" : "bg-cream/10 text-cream/50"}`}>2</span>
-                <span className="w-6 h-px bg-cream/20" />
-                <span className={`w-8 h-8 rounded-full flex items-center justify-center font-mono ${step >= 3 ? "bg-sand text-forest" : "bg-cream/10 text-cream/50"}`}>3</span>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-cream text-balance leading-[1.05]">
+                Подберите свой септик <span className="italic text-sand">за 2 шага</span>
+              </h2>
+              <p className="text-cream/80 text-lg max-w-2xl mx-auto md:mx-0">
+                Ответьте на 2 вопроса — покажем подходящую модель с ценой. Без регистрации и заявок.
+              </p>
+              <div className="flex items-center gap-2 text-sm text-cream/70 justify-center md:justify-start pt-2">
+                <span className={`w-9 h-9 rounded-full flex items-center justify-center font-mono font-bold ${step >= 1 ? "bg-sand text-forest" : "bg-cream/10 text-cream/50"}`}>1</span>
+                <span className="w-8 h-px bg-cream/20" />
+                <span className={`w-9 h-9 rounded-full flex items-center justify-center font-mono font-bold ${step >= 2 ? "bg-sand text-forest" : "bg-cream/10 text-cream/50"}`}>2</span>
+                <span className="w-8 h-px bg-cream/20" />
+                <span className={`w-9 h-9 rounded-full flex items-center justify-center font-mono font-bold ${step >= 3 ? "bg-sand text-forest" : "bg-cream/10 text-cream/50"}`}>3</span>
               </div>
             </div>
 
             {step === 1 && (
-              <div className="space-y-5">
-                <div className="text-lg text-cream/90">Сколько человек будет проживать?</div>
+              <div className="space-y-6">
+                <div className="text-xl md:text-2xl font-display text-cream">Шаг 1 · Сколько человек будет проживать?</div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {userOptions.map((o) => (
                     <button
                       key={o.value}
                       onClick={() => { setUsers(o.value); setStep(2); }}
-                      className="bg-cream/5 hover:bg-cream/15 border border-cream/15 hover:border-sand/60 rounded-2xl py-5 px-3 text-cream font-display text-2xl transition group"
+                      className="bg-cream hover:bg-sand text-forest border-2 border-cream hover:border-sand rounded-2xl py-6 px-3 font-display transition shadow-soft hover:shadow-elevated hover:-translate-y-0.5"
                     >
-                      <div>{o.label}</div>
-                      <div className="text-xs text-cream/50 font-sans mt-1 group-hover:text-sand">человек</div>
+                      <div className="text-3xl font-bold">{o.label}</div>
+                      <div className="text-xs text-graphite-400 font-sans mt-1 font-normal">человек</div>
                     </button>
                   ))}
+                </div>
+                <div className="pt-2 text-center">
+                  <a href="#lead-form" className="inline-flex items-center gap-2 text-sm text-cream/70 hover:text-sand transition underline underline-offset-4">
+                    Другое — оставить заявку специалисту →
+                  </a>
                 </div>
               </div>
             )}
 
             {step === 2 && (
-              <div className="space-y-5">
+              <div className="space-y-6">
                 <div className="flex items-center justify-between flex-wrap gap-3">
-                  <div className="text-lg text-cream/90">Какой у вас участок?</div>
+                  <div className="text-xl md:text-2xl font-display text-cream">Шаг 2 · Какой у вас участок?</div>
                   <button onClick={() => setStep(1)} className="text-sm text-cream/60 hover:text-sand transition">← Назад</button>
                 </div>
-                <div className="grid md:grid-cols-2 gap-3">
+                <div className="grid md:grid-cols-2 gap-4">
                   <button
                     onClick={() => { setSite("premium"); setStep(3); }}
-                    className="text-left bg-cream/5 hover:bg-cream/15 border border-cream/15 hover:border-sand/60 rounded-2xl p-6 transition"
+                    className="text-left bg-cream hover:bg-sand text-graphite border-2 border-cream hover:border-sand rounded-2xl p-7 transition shadow-soft hover:shadow-elevated hover:-translate-y-0.5"
                   >
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-md bg-sand/20 text-sand flex items-center justify-center">
-                        <IconDrop className="w-5 h-5" />
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-lg bg-forest/10 text-forest flex items-center justify-center">
+                        <IconDrop className="w-6 h-6" />
                       </div>
-                      <div className="font-display text-xl text-cream">Сложный участок</div>
+                      <div className="font-display text-xl md:text-2xl text-forest">Сложный участок</div>
                     </div>
-                    <div className="text-sm text-cream/70 leading-relaxed">
+                    <div className="text-sm text-graphite-400 leading-relaxed">
                       Высокие грунтовые воды, водоохранная зона, рядом скважина или колодец
                     </div>
                   </button>
                   <button
                     onClick={() => { setSite("standard"); setStep(3); }}
-                    className="text-left bg-cream/5 hover:bg-cream/15 border border-cream/15 hover:border-sand/60 rounded-2xl p-6 transition"
+                    className="text-left bg-cream hover:bg-sand text-graphite border-2 border-cream hover:border-sand rounded-2xl p-7 transition shadow-soft hover:shadow-elevated hover:-translate-y-0.5"
                   >
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-md bg-moss/30 text-cream flex items-center justify-center">
-                        <IconLeaf className="w-5 h-5" />
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-lg bg-moss/20 text-forest flex items-center justify-center">
+                        <IconLeaf className="w-6 h-6" />
                       </div>
-                      <div className="font-display text-xl text-cream">Обычный участок</div>
+                      <div className="font-display text-xl md:text-2xl text-forest">Обычный участок</div>
                     </div>
-                    <div className="text-sm text-cream/70 leading-relaxed">
+                    <div className="text-sm text-graphite-400 leading-relaxed">
                       Дача, СНТ, частный дом — без колодцев и скважин рядом
                     </div>
                   </button>
+                </div>
+                <div className="pt-2 text-center">
+                  <a href="#lead-form" className="inline-flex items-center gap-2 text-sm text-cream/70 hover:text-sand transition underline underline-offset-4">
+                    Другое / не знаю — оставить заявку специалисту →
+                  </a>
                 </div>
               </div>
             )}
