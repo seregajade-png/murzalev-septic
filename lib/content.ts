@@ -9,9 +9,9 @@ export const company = {
   phone: "+7 (978) 651-14-00",
   phoneRaw: "+79786511400",
   email: "murzalev.septiki@yandex.ru",
-  telegram: "https://t.me/Murzalev_septik",
+  telegram: "https://t.me/aleksandrmurzalev",
   whatsapp: "https://wa.me/79786511400",
-  max: "https://vk.me/murzalev_septik",
+  max: "https://max.ru/u/f9LHodD0cOIdVa4Vh3cBpxEw6PfqscDeM_NASPAL6ilXP4Gkb-ReGFbP3bw",
   avito: "https://www.avito.ru/simferopol/predlozheniya_uslug/septik_pod_klyuch_bez_otkachki_7565191503",
 };
 
