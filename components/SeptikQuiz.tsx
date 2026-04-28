@@ -233,9 +233,9 @@ export function SeptikQuiz() {
                     </div>
                   </div>
                 ) : (
-                  <div className="grid md:grid-cols-2 gap-3">
+                  <div className="grid md:grid-cols-3 gap-3">
                     <div className="bg-cream rounded-2xl p-6 text-graphite">
-                      <div className="text-xs uppercase tracking-wider text-forest mb-1">Базовая серия · очистка 60–65%</div>
+                      <div className="text-xs uppercase tracking-wider text-forest mb-1">Базовая · очистка 60–65%</div>
                       <div className="font-display text-2xl text-forest mb-2">Экофильтр {sizeText}</div>
                       <p className="text-graphite-400 leading-relaxed text-sm mb-4">
                         Энергонезависимый. Идеален для дачи и сезонного проживания.
@@ -251,6 +251,16 @@ export function SeptikQuiz() {
                         С компрессором. Подходит для постоянного проживания.
                       </p>
                       <Link href={`/catalog/ecofilter-plus-${size}`} className="btn-primary w-full justify-center">
+                        Подробнее <IconArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                    <div className="bg-cream rounded-2xl p-6 text-graphite border-2 border-sand">
+                      <div className="text-xs uppercase tracking-wider text-forest mb-1">Премиум · очистка до 98%</div>
+                      <div className="font-display text-2xl text-forest mb-2">Экофильтр премиум {sizeText}</div>
+                      <p className="text-graphite-400 leading-relaxed text-sm mb-4">
+                        6-камерная станция. Максимальная очистка под любые задачи.
+                      </p>
+                      <Link href={`/catalog/ecofilter-premium-${size}`} className="btn-primary w-full justify-center">
                         Подробнее <IconArrowRight className="w-4 h-4" />
                       </Link>
                     </div>
