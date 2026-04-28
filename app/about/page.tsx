@@ -66,11 +66,11 @@ export default function AboutPage() {
           <Reveal delay={200}>
             <div className="relative aspect-[5/6] rounded-[2.5rem] overflow-hidden">
               <Image
-                src="/images/about-factory.jpg"
-                alt="Производство Мурзалёв"
+                src="/images/about-team.jpg"
+                alt="Команда Мурзалёв на монтаже"
                 fill
                 sizes="(max-width: 768px) 100vw, 480px"
-                className="object-cover object-top"
+                className="object-cover"
               />
             </div>
           </Reveal>

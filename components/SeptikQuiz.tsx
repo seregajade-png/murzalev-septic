@@ -2,19 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { company } from "@/lib/content";
 import { IconArrowRight, IconCheck, IconPhone, IconDrop, IconLeaf } from "@/components/Icons";
-
-const userOptions = [
-  { value: 3, label: "до 3" },
-  { value: 4, label: "4" },
-  { value: 5, label: "5" },
-  { value: 8, label: "6–8" },
-  { value: 10, label: "9–10" },
-  { value: 12, label: "11–12" },
-  { value: 15, label: "13–15" },
-  { value: 20, label: "16–20" },
-];
 
 function sizeForUsers(users: number) {
   if (users <= 3) return "0-6";
@@ -31,21 +21,32 @@ function displaySize(size: string) {
   return size.replace("-", ".");
 }
 
+function userRangeLabel(users: number) {
+  if (users <= 3) return "до 3 человек";
+  if (users <= 4) return "4 человека";
+  if (users <= 5) return "5 человек";
+  if (users <= 8) return "6–8 человек";
+  if (users <= 10) return "9–10 человек";
+  if (users <= 12) return "11–12 человек";
+  if (users <= 15) return "13–15 человек";
+  return "16–20 человек";
+}
+
 type Site = "premium" | "standard";
 
 export function SeptikQuiz() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
-  const [users, setUsers] = useState<number | null>(null);
+  const [users, setUsers] = useState<number>(5);
   const [site, setSite] = useState<Site | null>(null);
 
   const reset = () => {
     setStep(1);
-    setUsers(null);
+    setUsers(5);
     setSite(null);
   };
 
-  const size = users ? sizeForUsers(users) : null;
-  const sizeText = size ? displaySize(size) : "";
+  const size = sizeForUsers(users);
+  const sizeText = displaySize(size);
 
   return (
     <section id="quiz" className="py-section">
@@ -75,21 +76,57 @@ export function SeptikQuiz() {
             </div>
 
             {step === 1 && (
-              <div className="space-y-6">
-                <div className="text-xl md:text-2xl font-display text-cream">Шаг 1 · Сколько человек будет проживать?</div>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  {userOptions.map((o) => (
-                    <button
-                      key={o.value}
-                      onClick={() => { setUsers(o.value); setStep(2); }}
-                      className="bg-cream hover:bg-sand text-forest border-2 border-cream hover:border-sand rounded-2xl py-6 px-3 font-display transition shadow-soft hover:shadow-elevated hover:-translate-y-0.5"
-                    >
-                      <div className="text-3xl font-bold">{o.label}</div>
-                      <div className="text-xs text-graphite-400 font-sans mt-1 font-normal">человек</div>
-                    </button>
-                  ))}
+              <div className="space-y-8">
+                <div className="text-xl md:text-2xl font-display text-cream">
+                  Шаг 1 · Сколько человек будет проживать?
                 </div>
-                <div className="pt-2 text-center">
+
+                <div className="bg-cream rounded-2xl p-8 md:p-10 text-graphite shadow-soft">
+                  <div className="flex flex-col items-center gap-6">
+                    <div className="text-center">
+                      <div className="font-display text-7xl md:text-8xl font-bold text-forest leading-none">
+                        {users}
+                      </div>
+                      <div className="text-sm uppercase tracking-[0.2em] text-graphite-400 mt-3">
+                        {users === 1 ? "человек" : users < 5 ? "человека" : "человек"}
+                      </div>
+                      <div className="text-base text-graphite-400 mt-1">
+                        диапазон: {userRangeLabel(users)}
+                      </div>
+                    </div>
+
+                    <div className="w-full max-w-xl space-y-2">
+                      <input
+                        type="range"
+                        min={1}
+                        max={20}
+                        step={1}
+                        value={users}
+                        onChange={(e) => setUsers(Number(e.target.value))}
+                        className="w-full h-2 bg-graphite-200 rounded-full appearance-none cursor-pointer accent-forest"
+                        style={{
+                          background: `linear-gradient(to right, var(--color-forest, #1f3a2c) 0%, var(--color-forest, #1f3a2c) ${((users - 1) / 19) * 100}%, #e5e1d8 ${((users - 1) / 19) * 100}%, #e5e1d8 100%)`,
+                        }}
+                      />
+                      <div className="flex justify-between text-xs text-graphite-400 px-1">
+                        <span>1</span>
+                        <span>5</span>
+                        <span>10</span>
+                        <span>15</span>
+                        <span>20</span>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => setStep(2)}
+                      className="btn-primary btn-lg mt-2"
+                    >
+                      Дальше <IconArrowRight className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="text-center">
                   <a href="#lead-form" className="inline-flex items-center gap-2 text-sm text-cream/70 hover:text-sand transition underline underline-offset-4">
                     Другое — оставить заявку специалисту →
                   </a>
@@ -106,30 +143,48 @@ export function SeptikQuiz() {
                 <div className="grid md:grid-cols-2 gap-4">
                   <button
                     onClick={() => { setSite("premium"); setStep(3); }}
-                    className="text-left bg-cream hover:bg-sand text-graphite border-2 border-cream hover:border-sand rounded-2xl p-7 transition shadow-soft hover:shadow-elevated hover:-translate-y-0.5"
+                    className="text-left bg-cream hover:bg-sand text-graphite border-2 border-cream hover:border-sand rounded-2xl overflow-hidden transition shadow-soft hover:shadow-elevated hover:-translate-y-0.5 group"
                   >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-lg bg-forest/10 text-forest flex items-center justify-center">
-                        <IconDrop className="w-6 h-6" />
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <Image
+                        src="/images/quiz-site-premium.jpg"
+                        alt="Сложный участок"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute top-3 left-3 chip bg-forest/90 text-cream">
+                        <IconDrop className="w-3.5 h-3.5" /> Премиум-серия
                       </div>
-                      <div className="font-display text-xl md:text-2xl text-forest">Сложный участок</div>
                     </div>
-                    <div className="text-sm text-graphite-400 leading-relaxed">
-                      Высокие грунтовые воды, водоохранная зона, рядом скважина или колодец
+                    <div className="p-6">
+                      <div className="font-display text-xl md:text-2xl text-forest mb-2">Сложный участок</div>
+                      <div className="text-sm text-graphite-400 leading-relaxed">
+                        Высокие грунтовые воды, водоохранная зона, рядом скважина или колодец
+                      </div>
                     </div>
                   </button>
                   <button
                     onClick={() => { setSite("standard"); setStep(3); }}
-                    className="text-left bg-cream hover:bg-sand text-graphite border-2 border-cream hover:border-sand rounded-2xl p-7 transition shadow-soft hover:shadow-elevated hover:-translate-y-0.5"
+                    className="text-left bg-cream hover:bg-sand text-graphite border-2 border-cream hover:border-sand rounded-2xl overflow-hidden transition shadow-soft hover:shadow-elevated hover:-translate-y-0.5 group"
                   >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-lg bg-moss/20 text-forest flex items-center justify-center">
-                        <IconLeaf className="w-6 h-6" />
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <Image
+                        src="/images/quiz-site-standard.jpg"
+                        alt="Обычный участок"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute top-3 left-3 chip bg-moss/90 text-cream">
+                        <IconLeaf className="w-3.5 h-3.5" /> Базовая серия
                       </div>
-                      <div className="font-display text-xl md:text-2xl text-forest">Обычный участок</div>
                     </div>
-                    <div className="text-sm text-graphite-400 leading-relaxed">
-                      Дача, СНТ, частный дом — без колодцев и скважин рядом
+                    <div className="p-6">
+                      <div className="font-display text-xl md:text-2xl text-forest mb-2">Обычный участок</div>
+                      <div className="text-sm text-graphite-400 leading-relaxed">
+                        Дача, СНТ, частный дом — без колодцев и скважин рядом
+                      </div>
                     </div>
                   </button>
                 </div>
@@ -141,13 +196,13 @@ export function SeptikQuiz() {
               </div>
             )}
 
-            {step === 3 && users && site && size && (
+            {step === 3 && site && (
               <div className="space-y-5">
                 <div className="flex items-center justify-between flex-wrap gap-3">
                   <div className="space-y-1">
                     <div className="text-sm text-sand uppercase tracking-[0.2em]">Рекомендуем</div>
                     <div className="text-lg text-cream/90">
-                      Для {users === 3 ? "до 3" : users === 8 ? "6–8" : users === 10 ? "9–10" : users === 12 ? "11–12" : users === 15 ? "13–15" : users === 20 ? "16–20" : users} {users === 1 ? "человека" : "человек"} · {site === "premium" ? "сложный участок" : "обычный участок"}
+                      Для {userRangeLabel(users)} · {site === "premium" ? "сложный участок" : "обычный участок"}
                     </div>
                   </div>
                   <button onClick={reset} className="text-sm text-cream/60 hover:text-sand transition">Начать заново</button>

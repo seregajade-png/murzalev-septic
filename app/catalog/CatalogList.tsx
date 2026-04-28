@@ -35,7 +35,49 @@ export function CatalogList() {
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2 mb-10 sticky top-20 bg-cream/95 backdrop-blur py-4 -mx-4 px-4 border-b border-graphite-200/40 z-10">
+      <div className="mb-12 space-y-4">
+        <div className="text-xs uppercase tracking-[0.2em] text-graphite-400">Категории</div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+          {categories.map((c) => {
+            const count = productsByCategory(c.slug).length;
+            const isActive = active === c.slug;
+            return (
+              <button
+                key={c.slug}
+                onClick={() => {
+                  setActive(c.slug);
+                  document.getElementById("products-list")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+                className={`group bg-white rounded-2xl overflow-hidden border-2 transition text-left flex flex-col ${
+                  isActive ? "border-forest shadow-elevated" : "border-graphite-200/50 hover:border-forest/40 hover:shadow-soft"
+                }`}
+              >
+                <div className="relative aspect-[4/3] bg-gradient-to-br from-moss/10 via-sand/5 to-forest/5 flex items-center justify-center p-4">
+                  <Image
+                    src={c.image}
+                    alt={c.title}
+                    width={300}
+                    height={225}
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-4 flex-1 flex flex-col justify-between gap-1">
+                  <div className="font-display text-sm md:text-base text-graphite leading-tight">{c.title}</div>
+                  <div className="text-xs text-graphite-400">{count} {count === 1 ? "модель" : count < 5 ? "модели" : "моделей"}</div>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+        <button
+          onClick={() => setActive("all")}
+          className={`text-sm font-medium transition mt-2 ${active === "all" ? "text-forest" : "text-graphite-400 hover:text-forest"}`}
+        >
+          Показать все товары ({products.length}) →
+        </button>
+      </div>
+
+      <div id="products-list" className="flex flex-wrap gap-2 mb-10 sticky top-20 bg-cream/95 backdrop-blur py-4 -mx-4 px-4 border-b border-graphite-200/40 z-10">
         <FilterButton active={active === "all"} onClick={() => setActive("all")}>
           Все ({products.length})
         </FilterButton>
