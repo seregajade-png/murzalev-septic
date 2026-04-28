@@ -130,7 +130,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
               <div className="flex flex-wrap gap-3">
                 <a href="#product-lead" className="btn-primary flex-1 min-w-[200px]">Узнать точную стоимость</a>
-                <a href={company.whatsapp} target="_blank" rel="noopener" className="btn-secondary">WhatsApp</a>
+                <a href={company.max} target="_blank" rel="noopener" className="btn-secondary">MAX</a>
               </div>
 
               <div className="grid grid-cols-2 gap-3 pt-4">
