@@ -18,6 +18,14 @@ import {
   IconPhone, IconLeaf, IconWrench,
 } from "@/components/Icons";
 
+function renderBold(text: string): string {
+  const escaped = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+  return escaped.replace(/\*\*(.+?)\*\*/g, '<strong class="text-graphite font-semibold">$1</strong>');
+}
+
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
 }
@@ -42,12 +50,13 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const related = productsByCategory(product.category).filter((p) => p.slug !== product.slug).slice(0, 3);
 
-  const features = [
+  const allFeatures = [
     { icon: IconShield, title: "Гарантия", text: "На корпус и монтаж" },
     { icon: IconClock, title: "Монтаж за 1 день", text: "По всему Крыму" },
     { icon: IconTruck, title: "Доставка по Крыму", text: "Собственным транспортом" },
-    { icon: IconLeaf, title: "Био-набор в комплекте", text: "Для быстрого запуска" },
+    { icon: IconLeaf, title: "Био-набор в комплекте", text: "Для быстрого запуска", bioOnly: true },
   ];
+  const features = allFeatures.filter((f) => !f.bioOnly || category.includesBio);
 
   return (
     <>
@@ -149,28 +158,69 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             </div>
           </div>
 
-          <section className="mt-20 grid md:grid-cols-3 gap-6">
-            <div className="md:col-span-2 card p-8 md:p-10 space-y-6">
-              <h2 className="font-display text-2xl text-forest">Для кого подходит</h2>
-              <ul className="space-y-3 text-graphite">
-                {getAudience(product).map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <IconCheck className="w-5 h-5 text-forest flex-shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="pt-4 border-t border-graphite-200/60">
-                <h3 className="font-display text-lg text-graphite mb-3">Что в комплекте</h3>
-                <div className="grid sm:grid-cols-2 gap-2 text-sm text-graphite-400">
-                  {["Септик заводской сборки", "Стартовый био-набор", "Пакет документов для СЭС", "Консультация инженера", "Гарантийное обслуживание"].map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <IconCheck className="w-4 h-4 text-moss-600" /> {item}
-                    </div>
-                  ))}
+          <section className="mt-20 grid md:grid-cols-3 gap-8">
+            <div className="md:col-span-2 space-y-8">
+              {category.descriptionFull && (
+                <div className="card p-8 md:p-10 space-y-4">
+                  <h2 className="font-display text-2xl text-forest">Описание</h2>
+                  <p className="text-graphite leading-relaxed">{category.descriptionFull}</p>
                 </div>
+              )}
+
+                {category.composition && category.composition.length > 0 && (
+                  <div className="card p-8 md:p-10 space-y-5">
+                    <h2 className="font-display text-2xl text-forest">Состав и принцип работы</h2>
+                    <ul className="space-y-3">
+                      {category.composition.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-graphite leading-relaxed">
+                          <span className="w-6 h-6 rounded-full bg-forest/10 text-forest flex items-center justify-center flex-shrink-0 text-xs font-mono mt-0.5">{i + 1}</span>
+                          <span dangerouslySetInnerHTML={{ __html: renderBold(item) }} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {category.advantages && category.advantages.length > 0 && (
+                  <div className="card p-8 md:p-10 space-y-5">
+                    <h2 className="font-display text-2xl text-forest">Преимущества модели</h2>
+                    <ul className="grid sm:grid-cols-2 gap-3">
+                      {category.advantages.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-graphite leading-relaxed">
+                          <IconCheck className="w-5 h-5 text-forest flex-shrink-0 mt-0.5" />
+                          <span dangerouslySetInnerHTML={{ __html: renderBold(item) }} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div className="card p-8 md:p-10 space-y-5">
+                  <h2 className="font-display text-2xl text-forest">Для кого подходит</h2>
+                  <ul className="space-y-3 text-graphite">
+                    {getAudience(product).map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <IconCheck className="w-5 h-5 text-forest flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {category.included && category.included.length > 0 && (
+                  <div className="card p-8 md:p-10 space-y-4 bg-cream-200/40">
+                    <h2 className="font-display text-2xl text-forest">Что вы получаете при покупке</h2>
+                    <ul className="space-y-2.5">
+                      {category.included.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-graphite">
+                          <IconCheck className="w-5 h-5 text-moss-600 flex-shrink-0 mt-0.5" />
+                          <span dangerouslySetInnerHTML={{ __html: renderBold(item) }} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
-            </div>
 
             <div id="product-lead" className="card p-6 md:p-8 bg-forest text-cream border-forest space-y-5 scroll-mt-28">
               <div className="eyebrow !text-sand">Заявка</div>
