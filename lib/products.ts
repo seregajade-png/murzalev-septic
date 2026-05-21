@@ -275,6 +275,8 @@ export const categories: CategoryInfo[] = [
     short: "Фильтрация через грунт",
     description:
       "Используется после септика для дополнительной фильтрации осветлённых стоков через грунт. Размеры под любую глубину.",
+    descriptionFull:
+      "Колодец дренажный предназначен для рассеивания стоков в инертном материале в почву. Колодец выполнен из прочного полипропилена, имеет по всему периметру перфорацию. Колодец лёгкий, прочный, его просто монтировать.",
     image: "/images/products/drainage.png",
     energyDependent: false,
     badge: "Доп. фильтрация",
@@ -297,6 +299,18 @@ export const categories: CategoryInfo[] = [
     short: "Пластиковый погреб для хранения",
     description:
       "Герметичный пластиковый погреб с лестницей и полками. Поддерживает стабильную температуру и влажность круглый год.",
+    descriptionFull:
+      "Готовый полипропиленовый погреб заводской сборки. Поставляется в полной комплектации — с утеплённой дверью входного люка, лестницей, готовыми полками, освещением и приточно-вытяжной вентиляцией. Поддерживает стабильную температуру и влажность круглый год, не требует дополнительной обработки.",
+    composition: [
+      "**Корпус** из полипропилена",
+      "**Армированные рёбра жёсткости**",
+      "**Дверь входного люка** (утеплённая)",
+      "**Готовые полки** из полипропилена",
+      "Удобная **деревянная лестница**",
+      "**Яркое и экономное освещение**",
+      "**Приточно-вытяжная вентиляция** (вентиляционная труба D=110)",
+      "**Герметичный вывод** для эл. проводки (D=25)",
+    ],
     image: "/images/products/pogreb.png",
     energyDependent: false,
     badge: "50+ лет службы",
@@ -424,9 +438,9 @@ export const products: Product[] = [
   { slug: "kesson-9", name: "Кессон 9", category: "kesson", price: 95000, size: "1430×1430×2500 мм", weight: "115 кг", image: "/images/products/kesson.png" },
 
   // Погреба
-  { slug: "pogreb-1", name: "Погреб 1", category: "pogreb", price: 260000, size: "1910×2000×2250 мм", weight: "250 кг", image: "/images/products/pogreb.png" },
-  { slug: "pogreb-2", name: "Погреб 2", category: "pogreb", price: 310000, size: "2200×2000×2250 мм", weight: "320 кг", image: "/images/products/pogreb.png" },
-  { slug: "pogreb-3", name: "Погреб 3", category: "pogreb", price: 370000, size: "2400×2000×2250 мм", weight: "360 кг", image: "/images/products/pogreb.png" },
+  { slug: "pogreb-1", name: "Погреб 1", category: "pogreb", price: 260000, size: "1910×2000×2250 мм", weight: "2500 кг", image: "/images/products/pogreb.png" },
+  { slug: "pogreb-2", name: "Погреб 2", category: "pogreb", price: 310000, size: "2200×2000×2250 мм", weight: "3200 кг", image: "/images/products/pogreb.png" },
+  { slug: "pogreb-3", name: "Погреб 3", category: "pogreb", price: 370000, size: "2400×2000×2250 мм", weight: "3600 кг", image: "/images/products/pogreb.png" },
   { slug: "pogreb-4", name: "Погреб 4", category: "pogreb", price: 480000, size: "3000×2000×2250 мм", weight: "615 кг", image: "/images/products/pogreb.png" },
 
   // Доборные горловины
