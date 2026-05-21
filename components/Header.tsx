@@ -45,7 +45,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href={`tel:${company.phoneRaw}`} className="hidden md:flex items-center gap-2 text-sm font-medium text-graphite hover:text-forest transition">
+          <a href={`tel:${company.phoneRaw}`} className="hidden md:flex items-center gap-2 py-2 -my-2 text-sm font-medium text-graphite hover:text-forest transition">
             <IconPhone className="w-4 h-4" />
             {company.phone}
           </a>

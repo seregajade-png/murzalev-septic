@@ -109,7 +109,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
             <div className="space-y-6">
               <div>
-                <Link href={`/catalog?category=${category.slug}`} className="text-sm text-moss-600 hover:text-forest transition">
+                <Link href={`/catalog?category=${category.slug}`} className="inline-block py-1.5 text-sm text-moss-600 hover:text-forest transition">
                   {category.title}
                 </Link>
                 <h1 className="font-display text-display-md text-forest mt-2 text-balance">{product.name}</h1>

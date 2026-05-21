@@ -71,7 +71,7 @@ export function CatalogList() {
         </div>
         <button
           onClick={() => setActive("all")}
-          className={`text-sm font-medium transition mt-2 ${active === "all" ? "text-forest" : "text-graphite-400 hover:text-forest"}`}
+          className={`text-sm font-medium transition mt-2 py-2 ${active === "all" ? "text-forest" : "text-graphite-400 hover:text-forest"}`}
         >
           Показать все товары ({products.length}) →
         </button>
