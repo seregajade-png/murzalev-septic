@@ -36,15 +36,21 @@ export function SplitText({
     return () => observer.disconnect();
   }, [delay]);
 
-  const lines = text.split("\n");
+  const linesOfWords = text.split("\n").map((line) => line.split(" "));
+  let runningIdx = 0;
+  const lines = linesOfWords.map((words) => {
+    const startIdx = runningIdx;
+    runningIdx += words.length;
+    return { words, startIdx };
+  });
   const Component = Tag as React.ElementType;
 
   return (
     <Component ref={ref} className={className}>
-      {lines.map((line, lineIndex) => (
+      {lines.map(({ words, startIdx }, lineIndex) => (
         <span key={lineIndex} className="block">
-          {line.split(" ").map((word, wordIndex) => {
-            const idx = lineIndex * 100 + wordIndex;
+          {words.map((word, wordIndex) => {
+            const idx = startIdx + wordIndex;
             return (
               <span key={`${lineIndex}-${wordIndex}`} className={`inline-block overflow-hidden align-bottom ${wordClassName || ""}`}>
                 <span
@@ -56,7 +62,7 @@ export function SplitText({
                 >
                   {word}
                 </span>
-                {wordIndex < line.split(" ").length - 1 && <span>&nbsp;</span>}
+                {wordIndex < words.length - 1 && <span>&nbsp;</span>}
               </span>
             );
           })}
