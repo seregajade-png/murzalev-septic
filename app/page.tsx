@@ -51,7 +51,7 @@ function HeroSection() {
         <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-forest/10 blur-3xl" />
       </div>
 
-      <div className="container-site relative grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-center">
+      <div className="container-site relative grid lg:grid-cols-[1.15fr_1fr] gap-6 lg:gap-16 items-center">
         <div className="space-y-8">
           <Reveal>
             <div className="eyebrow">Производство и монтаж · {company.city}</div>
@@ -74,15 +74,15 @@ function HeroSection() {
                 Получить консультацию <IconArrowRight className="w-5 h-5" />
               </a>
               <a href="#quiz" className="btn-secondary btn-lg">Подбор септика</a>
-              <a href="#catalog" className="btn-ghost btn-lg">Смотреть каталог</a>
+              <a href="#catalog" className="btn-ghost btn-lg hidden md:inline-flex">Смотреть каталог</a>
             </div>
           </Reveal>
           <Reveal delay={400}>
-            <div className="grid grid-cols-4 gap-4 md:gap-6 pt-6 border-t border-graphite-200/60 max-w-lg">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-5 md:gap-6 pt-6 border-t border-graphite-200/60 max-w-lg">
               {hero.stats.map((s) => (
                 <div key={s.label}>
                   <CountUp value={s.value} className="font-display text-2xl md:text-3xl text-forest block" />
-                  <div className="text-xs text-graphite-400 mt-1">{s.label}</div>
+                  <div className="text-xs text-graphite-400 mt-1 leading-tight">{s.label}</div>
                 </div>
               ))}
             </div>

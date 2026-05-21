@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
@@ -22,11 +22,27 @@ export function CatalogList() {
   const pathname = usePathname();
   const initial = (searchParams.get("category") as FilterKey) || "all";
   const [active, setActive] = useState<FilterKey>(initial);
+  const [stickyHidden, setStickyHidden] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const url = active === "all" ? pathname : `${pathname}?category=${active}`;
     router.replace(url, { scroll: false });
   }, [active, pathname, router]);
+
+  useEffect(() => {
+    lastScrollY.current = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      const diff = y - lastScrollY.current;
+      if (Math.abs(diff) < 8) return;
+      // hide on scroll-down past a threshold, show on scroll-up or near top
+      setStickyHidden(diff > 0 && y > 280);
+      lastScrollY.current = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const visible = useMemo(() => {
     if (active === "all") return products;
@@ -77,7 +93,7 @@ export function CatalogList() {
         </button>
       </div>
 
-      <div id="products-list" className="flex flex-wrap gap-2 mb-10 sticky top-20 bg-cream/95 backdrop-blur py-4 -mx-4 px-4 border-b border-graphite-200/40 z-10">
+      <div id="products-list" className={`flex flex-wrap gap-2 mb-10 sticky top-20 bg-cream/95 backdrop-blur py-4 -mx-4 px-4 border-b border-graphite-200/40 z-10 transition-transform duration-300 ease-out ${stickyHidden ? "-translate-y-[calc(100%+5rem)]" : "translate-y-0"}`}>
         <FilterButton active={active === "all"} onClick={() => setActive("all")}>
           Все ({products.length})
         </FilterButton>

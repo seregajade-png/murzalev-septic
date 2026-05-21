@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { products, categories } from "@/lib/products";
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "http://85.239.34.21:3001";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://septicmurzalev.ru";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
