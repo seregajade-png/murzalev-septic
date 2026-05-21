@@ -28,24 +28,24 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="space-y-3 text-sm">
-          <div className="text-xs uppercase tracking-[0.2em] text-sand mb-4">Разделы</div>
-          <Link href="/catalog" className="block text-cream/80 hover:text-sand transition">Каталог</Link>
-          <Link href="/#works" className="block text-cream/80 hover:text-sand transition">Наши работы</Link>
-          <Link href="/about" className="block text-cream/80 hover:text-sand transition">О компании</Link>
-          <Link href="/contacts" className="block text-cream/80 hover:text-sand transition">Контакты</Link>
-          <Link href="/#faq" className="block text-cream/80 hover:text-sand transition">Вопросы и ответы</Link>
+        <div className="space-y-1 text-sm">
+          <div className="text-xs uppercase tracking-[0.2em] text-sand mb-3">Разделы</div>
+          <Link href="/catalog" className="block py-2 text-cream/80 hover:text-sand transition">Каталог</Link>
+          <Link href="/#works" className="block py-2 text-cream/80 hover:text-sand transition">Наши работы</Link>
+          <Link href="/about" className="block py-2 text-cream/80 hover:text-sand transition">О компании</Link>
+          <Link href="/contacts" className="block py-2 text-cream/80 hover:text-sand transition">Контакты</Link>
+          <Link href="/#faq" className="block py-2 text-cream/80 hover:text-sand transition">Вопросы и ответы</Link>
         </div>
 
-        <div className="space-y-3 text-sm">
-          <div className="text-xs uppercase tracking-[0.2em] text-sand mb-4">Контакты</div>
-          <a href={`tel:${company.phoneRaw}`} className="flex items-center gap-2 text-cream hover:text-sand transition">
+        <div className="space-y-1 text-sm">
+          <div className="text-xs uppercase tracking-[0.2em] text-sand mb-3">Контакты</div>
+          <a href={`tel:${company.phoneRaw}`} className="flex items-center gap-2 py-2 text-cream hover:text-sand transition">
             <IconPhone className="w-4 h-4" /> {company.phone}
           </a>
-          <a href={`mailto:${company.email}`} className="flex items-center gap-2 text-cream/80 hover:text-sand transition">
+          <a href={`mailto:${company.email}`} className="flex items-center gap-2 py-2 text-cream/80 hover:text-sand transition">
             <IconMail className="w-4 h-4" /> {company.email}
           </a>
-          <div className="text-cream/70 pt-2">{company.address}</div>
+          <div className="text-cream/70 pt-3">{company.address}</div>
           <div className="text-cream/70">{company.schedule}</div>
         </div>
       </div>
@@ -53,9 +53,9 @@ export function Footer() {
       <div className="border-t border-cream/10">
         <div className="container-site py-6 flex flex-col md:flex-row justify-between gap-2 text-xs text-cream/60">
           <div>© {new Date().getFullYear()} {company.name}. Все права защищены.</div>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-sand">Политика конфиденциальности</Link>
-            <Link href="/design-system" className="hover:text-sand opacity-50">Дизайн-система</Link>
+          <div className="flex flex-wrap gap-x-4 gap-y-1">
+            <Link href="/privacy" className="py-1.5 hover:text-sand">Политика конфиденциальности</Link>
+            <Link href="/design-system" className="py-1.5 hover:text-sand opacity-50">Дизайн-система</Link>
           </div>
         </div>
       </div>

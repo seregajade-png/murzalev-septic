@@ -64,14 +64,14 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <FloatingCTA />
       <main className="pt-28 pb-20">
         <div className="container-site">
-          <nav className="text-sm text-graphite-400 mb-8 flex flex-wrap gap-2 items-center">
-            <Link href="/" className="hover:text-forest">Главная</Link>
+          <nav className="text-sm text-graphite-400 mb-8 flex flex-wrap gap-x-2 gap-y-1 items-center">
+            <Link href="/" className="py-1.5 hover:text-forest">Главная</Link>
             <span>/</span>
-            <Link href="/catalog" className="hover:text-forest">Каталог</Link>
+            <Link href="/catalog" className="py-1.5 hover:text-forest">Каталог</Link>
             <span>/</span>
-            <Link href={`/catalog?category=${category.slug}`} className="hover:text-forest">{category.title}</Link>
+            <Link href={`/catalog?category=${category.slug}`} className="py-1.5 hover:text-forest">{category.title}</Link>
             <span>/</span>
-            <span className="text-graphite">{product.name}</span>
+            <span className="py-1.5 text-graphite">{product.name}</span>
           </nav>
 
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16">

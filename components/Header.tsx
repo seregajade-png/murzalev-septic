@@ -66,13 +66,13 @@ export function Header() {
 
       {mobileOpen && (
         <div className="lg:hidden border-t border-graphite-200/60 bg-cream">
-          <nav className="container-site py-6 flex flex-col gap-4 text-graphite">
+          <nav className="container-site py-4 flex flex-col gap-1 text-graphite">
             {nav.map((item) => (
-              <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className="py-2 hover:text-forest">
+              <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className="py-3 min-h-[44px] flex items-center hover:text-forest">
                 {item.label}
               </Link>
             ))}
-            <a href={`tel:${company.phoneRaw}`} className="py-2 text-forest font-medium flex items-center gap-2">
+            <a href={`tel:${company.phoneRaw}`} className="py-3 min-h-[44px] text-forest font-medium flex items-center gap-2">
               <IconPhone className="w-4 h-4" /> {company.phone}
             </a>
           </nav>

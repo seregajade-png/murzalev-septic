@@ -189,7 +189,7 @@ function CatalogPreview() {
                     />
                   )}
                   {c.tag && <span className="absolute top-4 left-4 chip bg-forest text-cream z-10">{c.tag}</span>}
-                  {c.badge && <span className="absolute top-4 right-4 chip bg-moss/90 text-cream text-[10px] z-10">{c.badge}</span>}
+                  {c.badge && <span className="absolute top-4 right-4 chip bg-moss/90 text-cream text-[11px] z-10">{c.badge}</span>}
                 </div>
                 <div className="p-6 space-y-2">
                   <h3 className="font-display text-xl text-graphite">{c.title}</h3>

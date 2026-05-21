@@ -114,7 +114,7 @@ export function CatalogList() {
                   />
                 )}
                 {cat?.badge && (
-                  <span className="absolute top-3 left-3 chip bg-forest/90 text-cream text-[10px] z-10">{cat.badge}</span>
+                  <span className="absolute top-3 left-3 chip bg-forest/90 text-cream text-[11px] z-10">{cat.badge}</span>
                 )}
               </div>
               <div className="p-5 flex flex-col flex-1 space-y-3">
