@@ -420,7 +420,7 @@ export const products: Product[] = [
   { slug: "kesson-5", name: "Кессон 5", category: "kesson", price: 94000, size: "1286×1286×2000 мм", weight: "75 кг", image: "/images/products/kesson.png" },
   { slug: "kesson-6", name: "Кессон 6", category: "kesson", price: 81000, size: "1286×1286×2500 мм", weight: "86 кг", image: "/images/products/kesson.png" },
   { slug: "kesson-7", name: "Кессон 7", category: "kesson", price: 85000, size: "1430×1430×1500 мм", weight: "77 кг", image: "/images/products/kesson.png" },
-  { slug: "kesson-8", name: "Кессон 8", category: "kesson", price: 90000, size: "1430×1430×2000 мм", weight: "100 кг", image: "/images/products/kesson.png" },
+  { slug: "kesson-8", name: "Кессон 8", category: "kesson", price: 90000, size: "2000×1430×1500 мм", weight: "100 кг", image: "/images/products/kesson.png" },
   { slug: "kesson-9", name: "Кессон 9", category: "kesson", price: 95000, size: "1430×1430×2500 мм", weight: "115 кг", image: "/images/products/kesson.png" },
 
   // Погреба
