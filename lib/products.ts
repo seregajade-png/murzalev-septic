@@ -285,6 +285,8 @@ export const categories: CategoryInfo[] = [
     short: "Защита скважины и оборудования",
     description:
       "Пластиковая камера для защиты скважины и насосного оборудования от промерзания. Не ржавеет, не требует обслуживания.",
+    descriptionFull:
+      "Кессон пластиковый представляет собой цилиндрическую ёмкость, дно которой герметично фиксируется на обсадной трубе горловины скважины. Устанавливается кессон на глубине до двух метров. Простыми словами, кессон для скважин — это канализационный связной колодец. Применение этого нехитрого устройства при монтаже скважины препятствует промерзанию воды зимой и защищает систему водоснабжения от попадания грунтовых вод весной.",
     image: "/images/products/kesson.png",
     energyDependent: false,
     badge: "Защита скважины",
@@ -392,9 +394,9 @@ export const products: Product[] = [
   { slug: "nakopitel-20", name: "Накопитель 20 м³", category: "nakopitel", price: 455200, size: "2200×5500 мм", weight: "563 кг", capacity: "20 м³", image: "/images/products/nakopitel.png" },
   { slug: "nakopitel-20-alt", name: "Накопитель 20 м³ (широкий)", category: "nakopitel", price: 515600, size: "2400×4500 мм", weight: "509 кг", capacity: "20 м³", image: "/images/products/nakopitel.png" },
   { slug: "nakopitel-25", name: "Накопитель 25 м³", category: "nakopitel", price: 559400, size: "2200×6700 мм", weight: "712 кг", capacity: "25 м³", image: "/images/products/nakopitel.png" },
-  { slug: "nakopitel-25-alt", name: "Накопитель 25 м³ (широкий)", category: "nakopitel", price: 685300, size: "2400×5700 мм", weight: "712 кг", capacity: "25 м³", image: "/images/products/nakopitel.png" },
+  { slug: "nakopitel-25-alt", name: "Накопитель 25 м³ (широкий)", category: "nakopitel", price: 685300, size: "2400×5700 мм", weight: "728 кг", capacity: "25 м³", image: "/images/products/nakopitel.png" },
   { slug: "nakopitel-30", name: "Накопитель 30 м³", category: "nakopitel", price: 619800, size: "2200×8000 мм", weight: "867 кг", capacity: "30 м³", image: "/images/products/nakopitel.png" },
-  { slug: "nakopitel-30-alt", name: "Накопитель 30 м³ (широкий)", category: "nakopitel", price: 792200, size: "2400×6700 мм", weight: "867 кг", capacity: "30 м³", image: "/images/products/nakopitel.png" },
+  { slug: "nakopitel-30-alt", name: "Накопитель 30 м³ (широкий)", category: "nakopitel", price: 792200, size: "2400×6700 мм", weight: "839 кг", capacity: "30 м³", image: "/images/products/nakopitel.png" },
 
   // Дренажные колодцы
   { slug: "drainage-1", name: "Дренажный колодец 1", category: "drainage", price: 25000, size: "960×1750 мм", weight: "45 кг", image: "/images/products/drainage.png" },
