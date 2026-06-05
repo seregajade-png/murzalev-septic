@@ -3,6 +3,7 @@ import { Unbounded, Inter } from "next/font/google";
 import "./globals.css";
 import { company } from "@/lib/content";
 import { Preloader } from "@/components/Preloader";
+import { YandexMetrika } from "@/components/YandexMetrika";
 
 const unbounded = Unbounded({
   subsets: ["latin", "cyrillic"],
@@ -112,6 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ldJson) }}
         />
+        <YandexMetrika />
       </body>
     </html>
   );
