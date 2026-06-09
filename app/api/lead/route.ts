@@ -36,21 +36,38 @@ function formatMessage(lead: Lead, prefix?: string) {
   return lines.join("\n");
 }
 
-async function sendTelegram(botToken: string, chatId: string, text: string): Promise<{ ok: boolean; status?: number; body?: string }> {
+async function sendTelegramOnce(botToken: string, chatId: string, text: string): Promise<{ ok: boolean; status?: number; body?: string; threw?: string }> {
   try {
     const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chat_id: chatId, text }),
+      signal: AbortSignal.timeout(8000),
     });
     if (res.ok) return { ok: true };
     const body = await res.text().catch(() => "");
     console.error(`[LEAD] Telegram non-OK chat=${chatId} status=${res.status} body=${body.slice(0, 300)}`);
     return { ok: false, status: res.status, body };
   } catch (e) {
-    console.error(`[LEAD] Telegram fetch threw for chat=${chatId}:`, e);
-    return { ok: false };
+    const msg = e instanceof Error ? `${e.name}: ${e.message}` : String(e);
+    console.error(`[LEAD] Telegram fetch threw for chat=${chatId}: ${msg}`);
+    return { ok: false, threw: msg };
   }
+}
+
+async function sendTelegramWithRetry(botToken: string, chatId: string, text: string): Promise<{ ok: boolean; status?: number; body?: string; threw?: string; attempts: number }> {
+  const delays = [500, 1500, 3000];
+  let last: Awaited<ReturnType<typeof sendTelegramOnce>> = { ok: false };
+  for (let i = 0; i < delays.length + 1; i++) {
+    if (i > 0) await new Promise((r) => setTimeout(r, delays[i - 1]));
+    last = await sendTelegramOnce(botToken, chatId, text);
+    if (last.ok) return { ...last, attempts: i + 1 };
+    // for 4xx (chat not found / blocked) — don't retry, it won't change
+    if (last.status && last.status >= 400 && last.status < 500) {
+      return { ...last, attempts: i + 1 };
+    }
+  }
+  return { ...last, attempts: delays.length + 1 };
 }
 
 export async function POST(req: NextRequest) {
@@ -70,25 +87,14 @@ export async function POST(req: NextRequest) {
 
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
     const primaryChat = process.env.TELEGRAM_CHAT_ID;
-    const fallbackChat = process.env.TELEGRAM_FALLBACK_CHAT_ID;
 
     if (botToken && primaryChat) {
-      // 2) send to primary (group)
-      const primaryResult = await sendTelegram(botToken, primaryChat, formatMessage(lead));
-
-      // 3) if primary failed, fall back to owner's personal chat with a warning prefix
-      if (!primaryResult.ok && fallbackChat) {
-        const warn = `⚠️ Основной канал не отвечает (status=${primaryResult.status ?? "network"}). Заявка ниже:`;
-        const fallbackResult = await sendTelegram(botToken, fallbackChat, formatMessage(lead, warn));
+      // 2) send to primary chat with retries (handles intermittent geoblock to api.telegram.org)
+      const result = await sendTelegramWithRetry(botToken, primaryChat, formatMessage(lead));
+      if (!result.ok) {
+        // record failure details for debugging — lead is already on disk
         await persistLead(lead, {
-          telegramPrimary: { ok: false, status: primaryResult.status },
-          telegramFallback: { ok: fallbackResult.ok, status: fallbackResult.status },
-        });
-      } else if (!primaryResult.ok) {
-        // primary failed, no fallback configured — file is the only record
-        await persistLead(lead, {
-          telegramPrimary: { ok: false, status: primaryResult.status },
-          telegramFallback: { ok: false, reason: "not-configured" },
+          telegramFailed: { status: result.status, threw: result.threw, attempts: result.attempts },
         });
       }
     } else {
