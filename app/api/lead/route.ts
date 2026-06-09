@@ -36,9 +36,11 @@ function formatMessage(lead: Lead, prefix?: string) {
   return lines.join("\n");
 }
 
+const TG_API_BASE = (process.env.TELEGRAM_API_BASE || "https://api.telegram.org").replace(/\/+$/, "");
+
 async function sendTelegramOnce(botToken: string, chatId: string, text: string): Promise<{ ok: boolean; status?: number; body?: string; threw?: string }> {
   try {
-    const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+    const res = await fetch(`${TG_API_BASE}/bot${botToken}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chat_id: chatId, text }),
