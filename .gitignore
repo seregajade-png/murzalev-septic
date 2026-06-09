@@ -26,3 +26,9 @@ yarn-error.log*
 dev.log
 
 .vercel
+
+# leads — contain PII, never commit
+leads.jsonl
+
+# leads — contain PII, never commit
+leads.jsonl
