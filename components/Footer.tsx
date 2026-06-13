@@ -32,6 +32,7 @@ export function Footer() {
           <div className="text-xs uppercase tracking-[0.2em] text-sand mb-3">Разделы</div>
           <Link href="/catalog" className="block py-2 text-cream/80 hover:text-sand transition">Каталог</Link>
           <Link href="/#works" className="block py-2 text-cream/80 hover:text-sand transition">Наши работы</Link>
+          <Link href="/blog" className="block py-2 text-cream/80 hover:text-sand transition">Блог</Link>
           <Link href="/about" className="block py-2 text-cream/80 hover:text-sand transition">О компании</Link>
           <Link href="/contacts" className="block py-2 text-cream/80 hover:text-sand transition">Контакты</Link>
           <Link href="/#faq" className="block py-2 text-cream/80 hover:text-sand transition">Вопросы и ответы</Link>
