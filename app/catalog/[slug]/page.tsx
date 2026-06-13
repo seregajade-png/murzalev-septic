@@ -34,9 +34,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) return { title: "Товар не найден" };
+  const category = getCategory(product.category);
+  const catTitle = category?.title ?? "";
   return {
-    title: `${product.name} — ${formatPrice(product.price)} · Мурзалёв`,
-    description: `${product.name}, ${product.size}, ${product.capacity || ""}. Производство и монтаж септиков по всему Крыму.`,
+    title: `${product.name} — купить в Крыму от ${formatPrice(product.price)} · Мурзалёв`,
+    description: `${product.name}. Размер ${product.size}${product.capacity ? `, объём ${product.capacity}` : ""}${product.weight ? `, вес ${product.weight}` : ""}. ${catTitle} от производителя — свой завод в Симферополе. Доставка и монтаж по всему Крыму, гарантия от 12 месяцев.`,
+    alternates: {
+      canonical: `/catalog/${product.slug}`,
+    },
   };
 }
 

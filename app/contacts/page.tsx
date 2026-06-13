@@ -7,8 +7,8 @@ import { company } from "@/lib/content";
 import { IconPhone, IconMail, IconClock } from "@/components/Icons";
 
 export const metadata = {
-  title: "Контакты — Мурзалёв",
-  description: `Свяжитесь с нами по телефону ${company.phone}, WhatsApp, Telegram или email. Производство в Симферополе, работаем по всему Крыму.`,
+  title: "Контакты завода септиков «Мурзалёв» в Симферополе — заявка на септик в Крыму",
+  description: `Завод септиков Мурзалёв: телефон ${company.phone}, WhatsApp, Telegram, MAX. Адрес производства — Симферополь, ул. Генерала Васильева. Работаем по всему Крыму: бесплатный выезд инженера, монтаж под ключ за 1-5 дней.`,
 };
 
 const contacts = [
