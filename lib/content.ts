@@ -8,7 +8,7 @@ export const company = {
   schedule: "пн–сб 09:00–17:00 · связь до 23:00",
   phone: "+7 (978) 651-14-00",
   phoneRaw: "+79786511400",
-  email: "murzalev.septiki@yandex.ru",
+  email: "murza.aleksandr@yandex.ru",
   telegram: "https://t.me/aleksandrmurzalev",
   whatsapp: "https://wa.me/79786511400",
   max: "https://max.ru/u/f9LHodD0cOIdVa4Vh3cBpxEw6PfqscDeM_NASPAL6ilXP4Gkb-ReGFbP3bw",
