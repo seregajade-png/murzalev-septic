@@ -56,7 +56,6 @@ export function Footer() {
           <div>© {new Date().getFullYear()} {company.name}. Все права защищены.</div>
           <div className="flex flex-wrap gap-x-4 gap-y-1">
             <Link href="/privacy" className="py-1.5 hover:text-sand">Политика конфиденциальности</Link>
-            <Link href="/design-system" className="py-1.5 hover:text-sand opacity-50">Дизайн-система</Link>
           </div>
         </div>
       </div>
